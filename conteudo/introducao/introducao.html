@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Introdução</title>
+	<script src="../../assets/js/jquery-3.4.1.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../../assets/fontawesome/css/font-awesome.css">
+
+
+	<link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
+	<script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+
+	<script>
+		setInterval(oculta, 500);
+		function oculta() {
+			$('#preloader').fadeOut(1000);
+		}
+		function aumentaFonte(){
+			let iframe = document.querySelector('#iframe').contentWindow;
+			alert(iframe)
+
+		}
+	</script>
+	<style>
+		* {
+			font-family: 'Catamaran', sans-serif;
+			font-size: 1.1rem;
+		}
+	</style>
+	<style>
+
+		#botao-direito:hover {
+			cursor: pointer;
+		}
+
+		#botao-esquerdo:hover {
+			cursor: pointer;
+		}
+
+		#botao-direito{
+			background-image: url(../img/seta-direita.png);
+		}
+		#botao-esquerdo{
+			background-image: url(../img/seta-esquerda.png);
+		}
+
+		#preloader {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: #131f1f;
+			/*  cor do background que vai ocupar o body  */
+			z-index: 999;
+			/* z-index para jogar para frente e sobrepor tudo  */
+		}
+
+		#preloader .inner {
+			position: absolute;
+			top: 50%;
+			/* centralizar a parte interna do preload (onde fica a animação) */
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		.bolas>div {
+			display: inline-block;
+			background-color: #f98b5f;
+			width: 15px;
+			height: 15px;
+			border-radius: 100%;
+			margin: 3px;
+			-webkit-animation-fill-mode: both;
+			animation-fill-mode: both;
+			animation-name: animarBola;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+
+		}
+
+
+		.bolas>div:nth-child(1) {
+			animation-duration: 0.99s;
+			animation-delay: 0.2;
+		}
+
+		.bolas>div:nth-child(2) {
+			animation-duration: 0.99s;
+			animation-delay: 0.5s;
+		}
+
+		.bolas>div:nth-child(3) {
+			animation-duration: 0.99s;
+			animation-delay: 0.7s;
+		}
+
+		@keyframes animarBola {
+			0% {
+				-webkit-transform: scale(1);
+				transform: scale(1);
+				opacity: 1;
+			}
+
+			16% {
+				-webkit-transform: scale(0.1);
+				transform: scale(0.1);
+				opacity: 0.7;
+			}
+
+			33% {
+				-webkit-transform: scale(1);
+				transform: scale(1);
+				opacity: 1;
+			}
+		}
+
+	
+		.barra-inferior{
+			position: fixed;
+			width: 100%;
+			background-color: white;
+			bottom: 0;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		#botao-esquerdo {
+			/* position: fixed;
+			bottom: 0;
+			left: 0; */
+			/* padding-left: 1rem;
+			padding-right: 1rem; */
+			/* background-color: #559041;
+			border-radius: 1rem;
+			color: white;
+			display: flex;
+			align-items: center; */
+			/* z-index: 999; */
+			width: 3rem;
+			height: 2.3rem;
+		}
+
+		#botao-direito {
+			/* position: fixed;
+			bottom: 0;
+			right: 0; */
+			/* padding-left: 1rem;
+			padding-right: 1rem; */
+			width: 3rem;
+			height: 2.3rem;
+			/* background-color: #559041;
+			color: white;
+			display: flex;
+			align-items: center; */
+			
+			/* z-index: 999; */
+		}
+
+
+		.fa-plus-square:hover{
+			cursor: pointer;
+		}
+
+		.fa-minus-square:hover{
+			cursor: pointer;
+		}
+	</style>
+	<script>
+		function proximo() {
+			if (parteAtual() < partes[partes.length - 1]) {
+				var proximo = (parteAtual() + 1).toString().concat(".html");
+				document.querySelector('#iframe').src = proximo;
+				var audio = new Audio('../../assets/audio/pop.wav');
+				audio.addEventListener('canplaythrough', function () {
+					audio.play();
+				});
+			} else {
+				document.querySelector('#aciona').click();
+				var audio = new Audio('../../assets/audio/ohno.wav');
+				audio.addEventListener('canplaythrough', function () {
+					audio.play();
+				});
+				
+			}
+		}
+
+		function anterior() {
+			if (parteAtual() > partes[0]) {
+				var anterior = (parteAtual() - 1).toString().concat(".html");
+				document.querySelector('#iframe').src = anterior;
+				var audio = new Audio('../../assets/audio/pop.wav');
+				audio.addEventListener('canplaythrough', function () {
+					audio.play();
+				});
+			}
+		}
+
+		var partes = [
+			'0', '1', '2'
+		]
+
+		function parteAtual() {
+			var parte = document.querySelector('#iframe').src;
+			parte = parseInt((parte[parte.length - 6]));
+			return parte;
+		}
+	</script>
+</head>
+
+<body style="background-color: white !important;">
+	<div id="preloader">
+		<div class="inner">
+			<div class="bolas">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</div>
+	<iframe id="iframe" src="0.html" width="100%" height="670px" frameborder="0"></iframe>
+	
+	<div class="barra-inferior">
+		<div id="botao-esquerdo" onclick="anterior()">
+			<!-- <i class="fa fa fa-arrow-circle-left" aria-hidden="true"></i> -->
+			
+		</div>
+		<div id="botao-direito" onclick="proximo()">
+			<!-- <i class="fa fa fa-arrow-circle-right" aria-hidden="true"></i> -->
+			
+		</div>
+	</div>
+	
+	  <button type="button" id="aciona" style="display: none;" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+	  <!-- Modal -->
+	  <div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+		
+		  <!-- Modal content-->
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+			  <p><strong>OH NO!</strong></br>Você chegou ao fim do documento!</p>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+			</div>
+		  </div>
+		  </div>
+		</div>	
+</body>
+
+</html>
