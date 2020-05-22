@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
-	.barra-atualizacao{
+
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
+
+.barra-atualizacao{
 	width: 100%;
 	max-width: 1300px;
 	margin: auto;
@@ -9,4 +12,17 @@
     font-family: 'Montserrat', sans-serif;
 	font-size: 0.9rem;
     padding: 0.4rem;
+}
+
+
+.retira-link{
+	text-decoration: none;
+	color: black;
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.retira-link:hover{
+	cursor: pointer;
+	color: black;
+	text-decoration: none;
 }

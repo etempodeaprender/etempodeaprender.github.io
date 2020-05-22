@@ -40,7 +40,7 @@ body{
 }
 
 .ladoesquerdo{
-	margin-top: 0px;
+	margin-top: 3rem;
 	float: left;
 	width: 20%;
 	background-image: url('fundo.jpeg');
