@@ -1,5 +1,5 @@
 window.onload = function(){
     let barra = document.querySelector('.barra-atualizacao');
-    let texto = "Última atualização em 12/11/2020, às 22:40."
+    let texto = "Última atualização em 11/12/2020, às 13:59."
     barra.appendChild(document.createTextNode(texto))
 }
