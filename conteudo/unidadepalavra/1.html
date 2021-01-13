@@ -10,30 +10,30 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
     <script src="../../assets/js/jquery-3.4.1.min.js"></script>
     <script>
-        // function recarrega() {
-        //     var audio = new Audio('../../assets/audio/transition.wav');
-        //     audio.addEventListener('canplaythrough', function () {
-        //         audio.play();
-        //     });
-        //     $('.atividade').fadeOut(300);
-        //     $('.container-fluid').show(450);
-        // }
+        function recarrega() {
+            var audio = new Audio('../../assets/audio/transition.wav');
+            audio.addEventListener('canplaythrough', function () {
+                audio.play();
+            });
+            $('.atividade').fadeOut(300);
+            $('.container-fluid').show(450);
+        }
 
-        // function ApareceTexto() {
-        //     //document.querySelector('h2').style.display = 'block';
-        //     //$('h1').fadeIn(300);
-        //     document.querySelector('.atividade').style.boxShadow = '0px 0px 10px black';
-        // }
+        function ApareceTexto() {
+            document.querySelector('h2').style.display = 'block';
+            $('h1').fadeIn(300);
+            document.querySelector('.atividade').style.boxShadow = '0px 0px 10px black';
+        }
 
-        // function DesapareceTexto() {
-        //     //document.querySelector('h2').style.display = 'none';
-        //     //$('h1').fadeOut(100);
-        //     document.querySelector('.atividade').style.boxShadow = 'none';
-        // }
+        function DesapareceTexto() {
+            document.querySelector('h2').style.display = 'none';
+            $('h1').fadeOut(100);
+            document.querySelector('.atividade').style.boxShadow = 'none';
+        }
 
-        // function imprimeConteudo() {
-        //     window.print();
-        // }
+        function imprimeConteudo() {
+            window.print();
+        }
     </script>
     <style>
                     /* width */
@@ -63,8 +63,8 @@
         }
 
         .container-fluid {
-            /* display: none; */
-            display: block;
+            display: none;
+            /* display: block; */
         }
 
         .atividade {
